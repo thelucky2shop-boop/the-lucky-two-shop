@@ -1,1 +1,109 @@
+:root {
+  --bg-main: #050507;
+  --bg-elevated: #0b0d11;
+  --gold: #d4af37;
+  --text-main: #f5f5f5;
+  --text-muted: #9b9ca5;
+  --border-subtle: #262833;
+  --radius-base: 12px;
+}
 
+/* Сброс и базовые стили */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #111320 0, #050507 45%);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+/* HEADER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(to bottom, rgba(5, 5, 7, 0.96), rgba(5, 5, 7, 0.7));
+  border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+}
+
+.site-header__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.brand-mark {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  color: var(--gold);
+  font-size: 13px;
+}
+
+.brand-name {
+  font-size: 12px;
+  letter-spacing: .16em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* HERO */
+.hero {
+  max-width: 1120px;
+  margin: 60px auto;
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero__title {
+  font-size: 42px;
+  color: var(--gold);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.hero__subtitle {
+  color: var(--text-muted);
+  font-size: 15px;
+  max-width: 420px;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, #f3df8a, #d4af37);
+  padding: 11px 26px;
+  border-radius: 100px;
+  font-size: 14px;
+  color: #111;
+  font-weight: bold;
+}
+
+.btn--primary:hover {
+  transform: scale(1.04);
+}
+
+.product-grid {
+  max-width: 1120px;
+  margin: 60px auto;
+  display: grid;
+  gap: 22px;
+}
+
+.product-card__price {
+  color: var(--gold);
+  font-weight: bold;
+  font-size: 15px;
+}
