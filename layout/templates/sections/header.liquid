@@ -1,0 +1,34 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="{{ routes.root_url }}" class="site-header__brand">
+      <span class="brand-mark">♣</span>
+      <span class="brand-name">
+        {{ section.settings.logo_text }}
+      </span>
+    </a>
+
+    {% if linklists.main-menu.links.size > 0 %}
+      <nav class="site-nav">
+        {% for link in linklists.main-menu.links %}
+          <a href="{{ link.url }}" class="site-nav__link">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header – The Lucky Two",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Текст логотипа",
+      "default": "THE LUCKY TWO"
+    }
+  ]
+}
+{% endschema %}
