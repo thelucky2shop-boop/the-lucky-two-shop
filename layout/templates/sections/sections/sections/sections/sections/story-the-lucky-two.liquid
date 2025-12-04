@@ -1,0 +1,37 @@
+<section class="story">
+  <div class="story__inner">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+    {% if section.settings.subtitle != blank %}
+      <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+    <div class="story__body">
+      {{ section.settings.body }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story – The Lucky Two",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Заголовок",
+      "default": "История The Lucky Two"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Подзаголовок",
+      "default": "Почему двухдолларовая купюра стала символом удачи."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Текст",
+      "default": "<p>Двухдолларовую купюру редко дают сдачей. Её не тратят — её хранят. Мы превратили этот символ в арт-объект: чёрная рамка, золотые детали и талисман, который напоминает о цели и деньгах в твоей жизни.</p>"
+    }
+  ]
+}
+{% endschema %}
