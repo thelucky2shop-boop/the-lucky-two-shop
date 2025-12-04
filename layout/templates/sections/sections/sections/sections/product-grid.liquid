@@ -1,0 +1,55 @@
+<section class="product-grid">
+  <div class="product-grid__head">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+    {% if section.settings.subtitle != blank %}
+      <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+  </div>
+
+  <div class="product-grid__items">
+    {% assign collection = collections[section.settings.collection] %}
+
+    {% if collection and collection.products_count > 0 %}
+      {% for product in collection.products limit: 8 %}
+        <article class="product-card">
+          <a href="{{ product.url }}" class="product-card__link">
+            {% if product.featured_image %}
+              <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.title | escape }}" class="product-card__img">
+            {% endif %}
+            <div class="product-card__body">
+              <h3 class="product-card__title">{{ product.title }}</h3>
+              <p class="product-card__price">{{ product.price | money }}</p>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p class="product-grid__empty">В коллекции пока нет товаров.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Товары – The Lucky Two",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Заголовок",
+      "default": "Коллекция The Lucky Two"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Подзаголовок",
+      "default": "Выберите свой талисман удачи."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Коллекция для отображения"
+    }
+  ]
+}
+{% endschema %}
