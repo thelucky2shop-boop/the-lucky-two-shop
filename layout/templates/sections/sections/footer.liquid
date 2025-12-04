@@ -1,0 +1,56 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__block">
+      <p class="site-footer__brand">THE LUCKY TWO</p>
+      <p class="site-footer__tagline">{{ section.settings.tagline }}</p>
+    </div>
+
+    <div class="site-footer__block">
+      {% if section.settings.instagram_url != blank %}
+        <a href="{{ section.settings.instagram_url }}" class="site-footer__link" target="_blank">Instagram</a>
+      {% endif %}
+      {% if section.settings.telegram_url != blank %}
+        <a href="{{ section.settings.telegram_url }}" class="site-footer__link" target="_blank">Telegram</a>
+      {% endif %}
+      {% if section.settings.email != blank %}
+        <a href="mailto:{{ section.settings.email }}" class="site-footer__link">{{ section.settings.email }}</a>
+      {% endif %}
+    </div>
+
+    <div class="site-footer__block site-footer__block--right">
+      <p class="site-footer__copy">
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer – The Lucky Two",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Слоган",
+      "default": "A lucky charm framed in black and gold."
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Ссылка на Instagram"
+    },
+    {
+      "type": "url",
+      "id": "telegram_url",
+      "label": "Ссылка на Telegram"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "E-mail",
+      "default": "info@thelucky2.com"
+    }
+  ]
+}
+{% endschema %}
