@@ -1,0 +1,70 @@
+<section class="hero">
+  <div class="hero__content">
+    <p class="hero__eyebrow">Limited Collection</p>
+    <h1 class="hero__title">{{ section.settings.title }}</h1>
+    <p class="hero__subtitle">{{ section.settings.subtitle }}</p>
+
+    <div class="hero__actions">
+      {% if section.settings.primary_link != blank %}
+        <a href="{{ section.settings.primary_link }}" class="btn btn--primary">
+          {{ section.settings.primary_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.note != blank %}
+      <p class="hero__note">{{ section.settings.note }}</p>
+    {% endif %}
+  </div>
+
+  <div class="hero__media">
+    {% if section.settings.image != blank %}
+      <img
+        src="{{ section.settings.image | img_url: '1200x' }}"
+        alt="{{ section.settings.title | escape }}"
+        class="hero__img">
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero – The Lucky Two",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Главное изображение"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Заголовок",
+      "default": "The Lucky Two — рамка с двухдолларовой купюрой"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Подзаголовок",
+      "default": "Премиальный талисман удачи в чёрно-золотой рамке. Символ того, что деньги любят твоё пространство."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Текст кнопки",
+      "default": "Купить рамку"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Ссылка кнопки"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Маленькая заметка",
+      "default": "Каждая рамка собирается вручную, ограниченный тираж."
+    }
+  ]
+}
+{% endschema %}
